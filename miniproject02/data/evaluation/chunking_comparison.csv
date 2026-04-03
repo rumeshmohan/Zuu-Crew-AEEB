@@ -1,0 +1,51 @@
+query_id,query,strategy,precision_at_5,recall_at_5,answer_relevance,latency_ms,docs_retrieved,answer_length
+1,What are the payment plans available for land purchases?,semantic,1.0,0.25,0.556,506.94,5,135
+1,What are the payment plans available for land purchases?,fixed,1.0,0.25,0.743,546.06,5,192
+1,What are the payment plans available for land purchases?,sliding,1.0,0.25,0.736,5518.6,5,170
+1,What are the payment plans available for land purchases?,parent_child,1.0,0.25,0.715,10600.73,5,179
+1,What are the payment plans available for land purchases?,late_chunk,1.0,0.25,0.645,10566.61,5,156
+2,Show me properties in Horana with their prices,semantic,1.0,0.25,0.709,13709.88,5,159
+2,Show me properties in Horana with their prices,fixed,1.0,0.25,0.681,13663.59,5,164
+2,Show me properties in Horana with their prices,sliding,1.0,0.25,0.659,6585.53,5,134
+2,Show me properties in Horana with their prices,parent_child,1.0,0.25,0.506,8606.88,5,178
+2,Show me properties in Horana with their prices,late_chunk,1.0,0.25,0.681,13027.9,5,164
+3,What amenities are offered in Kiribathgoda properties?,semantic,1.0,0.25,0.598,15723.4,5,138
+3,What amenities are offered in Kiribathgoda properties?,fixed,1.0,0.25,0.555,12554.96,5,145
+3,What amenities are offered in Kiribathgoda properties?,sliding,1.0,0.25,0.581,5467.88,5,132
+3,What amenities are offered in Kiribathgoda properties?,parent_child,1.0,0.25,0.581,11666.23,5,130
+3,What amenities are offered in Kiribathgoda properties?,late_chunk,1.0,0.312,0.597,13660.51,5,146
+4,List properties with highway access,semantic,1.0,0.312,0.578,12681.06,5,165
+4,List properties with highway access,fixed,1.0,0.25,0.635,15634.86,5,185
+4,List properties with highway access,sliding,0.6,0.375,0.615,5539.93,5,150
+4,List properties with highway access,parent_child,0.2,0.067,0.519,12989.49,5,186
+4,List properties with highway access,late_chunk,1.0,0.312,0.548,12755.39,5,181
+5,What is the price range for lands in Colombo?,semantic,1.0,0.25,0.792,14620.2,5,123
+5,What is the price range for lands in Colombo?,fixed,1.0,0.25,0.807,10600.43,5,131
+5,What is the price range for lands in Colombo?,sliding,0.8,0.222,0.801,5791.63,5,172
+5,What is the price range for lands in Colombo?,parent_child,1.0,0.25,0.796,9615.72,5,148
+5,What is the price range for lands in Colombo?,late_chunk,1.0,0.25,0.792,12512.79,5,112
+6,Are there any properties with installment options?,semantic,1.0,0.25,0.738,13609.92,5,143
+6,Are there any properties with installment options?,fixed,1.0,0.25,0.644,14554.45,5,119
+6,Are there any properties with installment options?,sliding,0.8,0.235,0.721,4534.5,5,127
+6,Are there any properties with installment options?,parent_child,1.0,0.25,0.701,9943.0,5,141
+6,Are there any properties with installment options?,late_chunk,1.0,0.25,0.701,12700.92,5,157
+7,Show me lands near schools and hospitals,semantic,1.0,0.25,0.574,9649.25,5,178
+7,Show me lands near schools and hospitals,fixed,1.0,0.25,0.467,13546.8,5,123
+7,Show me lands near schools and hospitals,sliding,1.0,0.25,0.397,6673.89,5,192
+7,Show me lands near schools and hospitals,parent_child,1.0,0.25,0.397,11113.61,5,156
+7,Show me lands near schools and hospitals,late_chunk,1.0,0.25,0.543,10649.92,5,171
+8,What are the contact details for Prime Lands?,semantic,1.0,0.25,0.759,9556.54,5,107
+8,What are the contact details for Prime Lands?,fixed,1.0,0.25,0.759,8764.76,5,115
+8,What are the contact details for Prime Lands?,sliding,1.0,0.25,0.739,6019.68,5,137
+8,What are the contact details for Prime Lands?,parent_child,1.0,0.25,0.8,7534.6,5,109
+8,What are the contact details for Prime Lands?,late_chunk,1.0,0.25,0.759,9500.75,5,116
+9,Properties with down payment of 10%,semantic,1.0,0.25,0.085,12947.32,5,296
+9,Properties with down payment of 10%,fixed,1.0,0.25,0.085,10746.34,5,205
+9,Properties with down payment of 10%,sliding,1.0,0.25,0.479,6928.04,5,171
+9,Properties with down payment of 10%,parent_child,1.0,0.25,0.693,11729.74,5,195
+9,Properties with down payment of 10%,late_chunk,1.0,0.25,0.085,12212.67,5,205
+10,Available lands with bank loan facilities,semantic,1.0,0.25,0.679,16079.54,5,199
+10,Available lands with bank loan facilities,fixed,1.0,0.25,0.652,9599.69,5,141
+10,Available lands with bank loan facilities,sliding,1.0,0.278,0.666,8938.88,5,166
+10,Available lands with bank loan facilities,parent_child,1.0,0.25,0.708,9673.85,5,174
+10,Available lands with bank loan facilities,late_chunk,1.0,0.25,0.722,10729.76,5,144

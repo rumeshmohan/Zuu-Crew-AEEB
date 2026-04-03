@@ -1,0 +1,130 @@
+# Configuration for Prime Lands
+
+embedding:
+  provider: huggingface
+  tier: small
+  batch_size: 100
+  show_progress: false
+
+llm:
+  provider: groq
+  tier: general
+  temperature: 0.0
+  max_tokens: 2000
+  streaming: false
+
+crawling:
+  base_url: "https://www.primelands.lk"
+  max_depth: 2
+  max_pages: 150
+  delay_seconds: 2.0
+
+  start_paths:
+    - "/land/en"
+    - "/house/en"
+    - "/apartment/en"
+    - "/apartment/ongoing/en"
+    - "/land/city/Malabe/en"
+    - "/land/city/Colombo/en"
+    - "/land/city/Kandy/en"
+    - "/land/city/Kurunegala/en"
+    - "/land/city/Gampaha/en"
+    - "/contact-us/en"
+
+  exclude_patterns:
+    - "/sin"
+    - "/ta"
+    - "/login"
+    - "/admin"
+    - "/cart"
+    - "/privacy-policy"
+    - "/terms-and-conditions"
+    - "/disclaimer"
+    - "/kyc"
+    - "?filter="
+    - "/images/"
+    - "/downloads/"
+    - "/pdf/"
+    - ".jpg"
+    - ".png"
+    - ".pdf"
+    - ".zip"
+
+paths:
+  vector_store: data/vectorstore
+  markdown_dir: data/raw/primelands_markdown
+  corpus_file: data/raw/primelands_corpus.jsonl
+  cache_dir: data/cag_cache
+  chunks_dir: data/chunks
+  evaluation_dir: data/evaluation
+
+qdrant:
+  collections:
+    - "primelands_semantic"
+    - "primelands_fixed"
+    - "primelands_sliding"
+    - "primelands_parent_child"
+    - "primelands_late_chunk"
+  default_collection: "primelands_semantic"
+
+chunking:
+  fixed:
+    chunk_size: 800
+    chunk_overlap: 100
+
+  semantic:
+    max_chunk_size: 1000
+    min_chunk_size: 200
+
+  sliding:
+    window_size: 512
+    stride_size: 256
+
+  parent_child:
+    parent_size: 1200
+    child_size: 250
+    child_overlap: 50
+
+  late:
+    base_size: 1000
+    split_size: 300
+    context_window: 150
+
+retrieval:
+  top_k: 5                   
+  similarity_threshold: 0.7
+
+cag:
+  max_cache_size: 1000
+  similarity_threshold: 0.90
+  history_ttl_hours: 24
+
+crag:
+  confidence_threshold: 0.6
+  expanded_k: 8
+
+# BONUS: Cost Analysis 
+cost_analysis:
+
+  # Scale assumptions
+  daily_users: 500            
+  queries_per_user: 3         
+
+  # Token estimates per query 
+  avg_input_tokens: 150       
+  avg_output_tokens: 250      
+  avg_embedding_tokens: 100   
+
+  # Pricing - USD per 1 million tokens
+  input_cost_per_1m: 0.15
+  output_cost_per_1m: 0.60
+  embedding_cost_per_1m: 0.13
+
+  # Infrastructure
+  storage_gb: 5               
+  storage_cost_per_gb: 0.10   
+
+  # ROI assumptions
+  dev_hours: 160              
+  hourly_rate: 100            
+  setup_cost: 500             

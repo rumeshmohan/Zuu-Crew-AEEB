@@ -1,0 +1,30 @@
+# Parameter Configuration for Kapruka Concierge
+
+provider:
+  default: groq
+  tier: general
+
+llm:
+  temperature: 0.2
+  max_tokens: 256
+  top_p: 0.9
+
+embedding:
+  provider: cohere
+  tier: default
+
+rag:
+  cache_path: "./qdrant_db"
+  collection_name: "kapruka_catalog"
+  batch_size: 50
+  score_threshold: 0.35
+  max_k: 5
+
+paths:
+  data_dir: "data"
+  catalog_file: "data/catalog.json"
+  profiles_file: "data/profiles.json"
+
+output:
+  timezone: "Asia/Colombo"
+  disclaimer: "This is a pre-development prototype for Kapruka."

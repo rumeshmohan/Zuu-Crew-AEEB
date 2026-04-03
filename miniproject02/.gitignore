@@ -1,0 +1,53 @@
+# ── Secrets & Personal Scripts ────────────────────────────────────────────────
+.env
+
+# ── Data (Ignore large/generated files, keep structure) ───────────────────────
+# We ignore the content but often want to keep the folders
+data/raw/
+data/chunks/
+data/vectorstore/
+data/cag_cache/
+logs/*.log
+
+# OPTIONAL: If you want to keep your evaluation results in Git:
+# !data/evaluation/
+
+# ── Python & Build ────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ── Virtual Environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Tools & IDEs ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# But do NOT ignore the .gitkeep files
+!.gitkeep

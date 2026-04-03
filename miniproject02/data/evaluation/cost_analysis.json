@@ -1,0 +1,33 @@
+{
+  "assumptions": {
+    "daily_users": 500,
+    "queries_per_user": 3,
+    "monthly_queries": 45000,
+    "avg_input_tokens": 150,
+    "avg_output_tokens": 250
+  },
+  "baseline_costs": {
+    "llm_generation": 7.76,
+    "embeddings": 0.58,
+    "storage": 0.5,
+    "total_monthly": 8.85
+  },
+  "optimized_costs": {
+    "cache_hit_rate_percent": 79.0,
+    "queries_cached": 35550,
+    "llm_generation": 1.63,
+    "embeddings": 0.58,
+    "storage_with_cache": 0.6,
+    "total_monthly": 2.82
+  },
+  "savings": {
+    "monthly_usd": 6.03,
+    "annual_usd": 72.39,
+    "savings_percent": 68.2
+  },
+  "roi": {
+    "implementation_cost": 16500.0,
+    "payback_months": 2735.2,
+    "twelve_month_roi_percent": -99.6
+  }
+}

@@ -1,0 +1,21 @@
+query_id,query,query_type,rag_time_s,crag_time_s,rag_quality,crag_quality,confidence_initial,confidence_final,confidence_improvement,correction_applied,quality_improvement,rag_answer_length,crag_answer_length
+1,What are the payment plans for Prime Lands properties?,clear,5.9,7.63,0.761,0.513,0.432,0.417,-0.015,True,-0.249,158,172
+2,Show me properties in Horana with prices,clear,8.59,10.28,0.698,0.698,0.231,0.216,-0.015,True,0.0,117,117
+3,What is the contact number for Prime Lands?,clear,9.64,9.77,0.731,0.731,0.347,0.331,-0.016,True,0.0,141,141
+4,List properties with bank loan facilities,clear,8.78,8.96,0.702,0.702,0.41,0.395,-0.015,True,0.0,130,130
+5,What amenities are available in Kiribathgoda?,clear,10.7,11.89,0.728,0.728,0.463,0.433,-0.03,True,0.0,142,142
+6,Something with good connectivity,ambiguous,6.67,7.69,0.566,0.566,0.41,0.395,-0.015,True,0.0,137,137
+7,I want land somewhere nice,ambiguous,6.69,7.81,0.648,0.648,0.258,0.244,-0.014,True,0.0,201,201
+8,Show me deals that are worth it,ambiguous,8.76,10.69,0.284,0.284,0.231,0.216,-0.015,True,0.0,134,134
+9,Properties for families,ambiguous,6.62,7.91,0.506,0.506,0.325,0.477,0.152,True,0.0,160,160
+10,Land in a good area,ambiguous,7.63,7.73,0.62,0.62,0.26,0.245,-0.015,True,0.0,199,191
+11,How much does land cost?,medium,7.6,7.84,0.537,0.537,0.254,0.241,-0.013,True,0.0,148,148
+12,Where can I buy property?,medium,6.58,7.59,0.672,0.672,0.255,0.24,-0.016,True,0.0,163,163
+13,What options do you have?,medium,7.66,7.71,0.472,0.472,0.356,0.342,-0.014,True,0.0,170,170
+14,Tell me about your services,medium,7.76,7.78,0.601,0.601,0.36,0.345,-0.015,True,0.0,242,242
+15,What areas do you cover?,medium,7.66,7.69,0.627,0.627,0.259,0.244,-0.015,True,0.0,169,169
+16,Compare payment plans across different locations,complex,7.71,8.68,0.599,0.599,0.326,0.308,-0.018,True,0.0,211,211
+17,What is the best value property with highway access?,complex,6.58,7.61,0.627,0.627,0.324,0.31,-0.014,True,0.0,181,181
+18,Show me properties suitable for investment,complex,7.66,8.7,0.632,0.632,0.324,0.31,-0.014,True,0.0,168,168
+19,What are the tax implications of buying land?,complex,7.03,8.09,0.735,0.735,0.343,0.327,-0.015,True,0.0,161,161
+20,Explain the full purchasing process,complex,6.69,7.64,0.264,0.264,0.26,0.245,-0.015,True,0.0,190,190

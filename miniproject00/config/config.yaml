@@ -1,0 +1,23 @@
+# config/config.yaml
+providers:
+  enabled:
+    - openai
+    - google
+    - groq
+    - cohere
+    - mistral
+  default: groq  # Switched to Groq for higher rate limits and speed
+
+models:
+  auto_routing: true
+  reasoning_techniques:
+    - cot
+    - tot
+
+defaults:
+  temperature: 0.2
+  max_tokens: 1000
+  by_task:
+    classification:
+      temperature: 0.0  # Safe Mode: Deterministic output
+      max_tokens: 150   # Increased slightly for safety

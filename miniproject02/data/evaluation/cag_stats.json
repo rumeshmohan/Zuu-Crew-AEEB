@@ -1,0 +1,37 @@
+{
+  "evaluation_summary": {
+    "total_queries": 100,
+    "cache_hits": 79,
+    "cache_misses": 21,
+    "hit_rate_percent": 79.0
+  },
+  "latency_metrics": {
+    "avg_hit_latency_ms": 11.51,
+    "avg_miss_latency_ms": 1255.4,
+    "speedup_factor": 109.04
+  },
+  "cost_analysis": {
+    "cost_per_query_usd": 0.000172,
+    "total_cost_without_cache_usd": 0.0172,
+    "total_cost_with_cache_usd": 0.0036,
+    "savings_usd": 0.0136,
+    "savings_percent": 79.0
+  },
+  "projections": {
+    "daily_users": 500,
+    "daily_queries": 1500,
+    "monthly_queries": 45000,
+    "monthly_savings_usd": 6.13,
+    "annual_savings_usd": 73.59
+  },
+  "cache_stats": {
+    "total_cached": 21,
+    "faq_count": 0,
+    "faq_ready": 0,
+    "faq_pending": 0,
+    "history_count": 21,
+    "history_ttl_hours": 24,
+    "similarity_threshold": 0.9,
+    "cache_size_kb": 76.64453125
+  }
+}

@@ -1,0 +1,23 @@
+# --- API Safety & Credentials ---
+.env
+.env.local
+.env.*.local
+
+# --- Python & Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+.venv/
+env/
+venv/
+build/
+dist/
+.pytest_cache/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- Project Specific Data/Temporary ---
+data/catalog_pre_patch_backup.json

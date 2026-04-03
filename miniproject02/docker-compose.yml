@@ -1,0 +1,192 @@
+# =============================================================================
+# Prime Lands Intelligence Platform – Docker Compose
+# Placement: docker-compose.yml  (project root)
+#
+# Services:
+#   api        – FastAPI RAG service
+#   qdrant     – Vector database
+#   redis      – CAG cache backend (optional upgrade from in-memory)
+#   notebook   – JupyterLab for development
+#   tests      – One-shot test runner
+#
+# Usage:
+#   docker compose up -d          # production
+#   docker compose --profile dev up   # include notebook
+#   docker compose run --rm tests     # run full test suite
+# =============================================================================
+
+version: "3.9"
+
+# ---------------------------------------------------------------------------
+# Shared environment file
+# ---------------------------------------------------------------------------
+x-env: &common-env
+  env_file:
+    - .env
+
+# ---------------------------------------------------------------------------
+# Named volumes
+# ---------------------------------------------------------------------------
+volumes:
+  qdrant_data:
+    driver: local
+  redis_data:
+    driver: local
+  primelands_data:
+    driver: local
+
+# ---------------------------------------------------------------------------
+# Networks
+# ---------------------------------------------------------------------------
+networks:
+  primelands_net:
+    driver: bridge
+
+# ---------------------------------------------------------------------------
+# Services
+# ---------------------------------------------------------------------------
+services:
+
+  # --------------------------------------------------------------------------
+  # Qdrant vector database
+  # --------------------------------------------------------------------------
+  qdrant:
+    image: qdrant/qdrant:v1.9.2
+    container_name: primelands_qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST API
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - primelands_net
+
+  # --------------------------------------------------------------------------
+  # Redis (optional cache persistence layer for CAGCache)
+  # --------------------------------------------------------------------------
+  redis:
+    image: redis:7.2-alpine
+    container_name: primelands_redis
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - primelands_net
+
+  # --------------------------------------------------------------------------
+  # FastAPI RAG service
+  # --------------------------------------------------------------------------
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    image: primelands-api:latest
+    container_name: primelands_api
+    restart: unless-stopped
+    <<: *common-env
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+      - REDIS_URL=redis://redis:6379/0
+      - VECTOR_STORE_PATH=/app/data/qdrant
+      - LOG_LEVEL=info
+    ports:
+      - "8000:8000"
+    volumes:
+      - primelands_data:/app/data
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      - primelands_net
+
+  # --------------------------------------------------------------------------
+  # JupyterLab (dev profile only)
+  # --------------------------------------------------------------------------
+  notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: primelands-notebook:latest
+    container_name: primelands_notebook
+    profiles:
+      - dev
+    <<: *common-env
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+    command: >
+      /app/.venv/bin/jupyter lab
+        --ip=0.0.0.0
+        --port=8888
+        --no-browser
+        --NotebookApp.token=''
+        --NotebookApp.password=''
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace
+      - primelands_data:/workspace/data
+    working_dir: /workspace/notebooks
+    depends_on:
+      - qdrant
+    networks:
+      - primelands_net
+
+  # --------------------------------------------------------------------------
+  # One-shot test runner
+  # --------------------------------------------------------------------------
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: primelands-tests:latest
+    container_name: primelands_tests
+    profiles:
+      - test
+    <<: *common-env
+    environment:
+      - QDRANT_HOST=qdrant
+      - QDRANT_PORT=6333
+    command: >
+      /app/.venv/bin/pytest tests/
+        -v
+        --tb=short
+        -m "not integration"
+        --junitxml=/app/data/test_results.xml
+        --cov=src
+        --cov-report=html:/app/data/coverage
+    volumes:
+      - .:/app
+      - primelands_data:/app/data
+    working_dir: /app
+    depends_on:
+      - qdrant
+    networks:
+      - primelands_net

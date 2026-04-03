@@ -1,0 +1,31 @@
+# config/models.yaml
+
+# Model Tiers:
+# - general: Lowest latency, highest free-tier rate limits 
+# - strong: Best precision for structured data extraction 
+# - reason: Models that handle CoT/Logic best 
+
+openai:
+  general: gpt-4o-mini      
+  strong: gpt-4.1-mini      
+  reason: gpt-5-nano        
+
+google:
+  general: gemini-2.0-flash-lite
+  strong: gemini-2.0-flash       
+  reason: gemini-2.0-flash       
+
+groq:
+  general: llama-3.1-8b-instant   
+  strong: llama-3.3-70b-versatile  
+  reason: llama-3.3-70b-versatile 
+
+cohere:
+  general: command-r-08-2024      
+  strong: command-r-plus          
+  reason: command-r-plus          
+
+mistral:
+  general: mistral-small-latest   
+  strong: mistral-large-latest    
+  reason: magistral-medium-latest 

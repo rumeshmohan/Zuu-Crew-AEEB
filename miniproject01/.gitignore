@@ -1,0 +1,29 @@
+# Environment & Packages
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Build & System
+dist/
+build/
+*.egg-info/
+.DS_Store
+Thumbs.db
+
+# Project Specifics
+# Ignore all generated data and model weights
+data/
+artifacts/
+
+# Ignore logs and temp files
+logs/
+*.log
+temp/
+
+# UV Specific
+.uv/

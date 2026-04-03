@@ -1,0 +1,59 @@
+# Operation Ledger-Mind: Prompt Library
+
+teacher_questions:
+  template: |
+    You are a Financial Analyst. Based ONLY on the text below, generate exactly 10 diverse questions.
+    
+    STRICT CATEGORY REQUIREMENTS:
+    - 4 Questions on Hard Facts (specific numbers, revenue, dates).
+    - 3 Questions on Strategic Summaries (goals, risks).
+    - 3 Questions on Stylistic/Tone (tone, culture).
+    
+    OUTPUT FORMAT:
+    Return ONLY a raw JSON list of strings. 
+    Example: ["Question 1?", "Question 2?", ..., "Question 10?"]
+    
+    TEXT CHUNK:
+    {chunk_text}
+
+student_answers:
+  template: |
+    You are a helpful financial assistant. 
+    Answer this question based strictly ONLY on the provided text chunk.
+    If the answer is not in the text, explicitly state "Information not available."
+    
+    TEXT CHUNK: {chunk_text}
+    QUESTION: {question}
+    
+    ANSWER:
+
+llama3_template: |
+  ### Instruction:
+  {{instruction}}
+
+  ### Input:
+  {{input}}
+
+  ### Response:
+  {{output}}
+
+judge_prompt: |
+  [System]
+  Act as an impartial judge evaluating a financial analyst AI.
+
+  [Data]
+  Question: {question}
+  Ground Truth: {truth}
+  Actual Answer: {answer}
+
+  [Task]
+  Rate the 'Actual Answer' on a scale of 1 to 5 based on factual accuracy compared to the 'Ground Truth'.
+  1: Completely wrong or hallucinated numbers.
+  5: Perfect match with ground truth numbers.
+
+  [Formatting]
+  Provide your explanation first, but you MUST end your response by providing the numerical score inside double brackets at the very end, like this: [[SCORE]].
+  Example: "The answer correctly identified the revenue but missed the decimal. [[4]]"
+
+intern_persona: |
+  You are a financial analyst for Alpha-Yield Capital.
