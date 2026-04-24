@@ -1,0 +1,37 @@
+{
+  "CUS_001": {
+    "customer_name": "Kamal",
+    "recipients": {
+      "wife": {
+        "allergies": [
+          "nuts",
+          "peanuts",
+          "cashews",
+          "tree nuts"
+        ],
+        "preferences": [
+          "dark chocolate",
+          "red roses",
+          "handbags"
+        ]
+      },
+      "mother": {
+        "allergies": [],
+        "preferences": [
+          "fruit baskets",
+          "tea",
+          "traditional sweets"
+        ]
+      },
+      "son": {
+        "allergies": [
+          "dairy"
+        ],
+        "preferences": [
+          "puzzle games",
+          "reading books"
+        ]
+      }
+    }
+  }
+}

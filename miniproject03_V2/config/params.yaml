@@ -1,0 +1,41 @@
+# Parameter Configuration for Kapruka Concierge
+
+provider:
+  default: groq
+  tier: general
+
+llm:
+  temperature: 0.2
+  max_tokens: 256
+  top_p: 0.9
+
+embedding:
+  # Options: clip, cohere, openai, openrouter, gemini
+  # - clip          → runs locally via HuggingFace transformers (no API key needed)
+  # - cohere/openai → uses the provider's embedding API (requires an API key)
+  provider: clip
+
+  # Tier used when provider is an API provider (e.g. cohere → "default" → embed-english-v3.0)
+  tier: default
+
+  # Only applies when provider = clip
+  # - text_only   → encodes product text only; single "text" vector per point
+  # - text_image  → encodes product text + downloads & encodes product image;
+  #                 dual "text" + "image" named vectors per point (cross-modal retrieval)
+  clip_mode: text_image
+
+rag:
+  cache_path: "./qdrant_db"
+  collection_name: "kapruka_catalog"
+  batch_size: 50
+  score_threshold: 0.35
+  max_k: 5
+
+paths:
+  data_dir: "data"
+  catalog_file: "data/catalog.json"
+  profiles_file: "data/profiles.json"
+
+output:
+  timezone: "Asia/Colombo"
+  disclaimer: "This is a pre-development prototype for Kapruka."
