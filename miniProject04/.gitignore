@@ -1,0 +1,52 @@
+# Environment & Secrets
+.env
+.env.*
+!.env example
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environments
+.venv/
+venv/
+
+# uv
+.uv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# LangFuse cache
+langfuse_cache/
+
+# Database
+*.sql.bak
+pgdata/
+*.db
+*.sqlite3
+
+# Docker
+docker-compose.override.yml
+
+# Data files — ignore large database dumps and exported outputs
+data/*.sql
+data/*.csv
+data/*.json
+data/*.parquet
+
+# IDEs & OS Files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Logs
+*.log
+logs/

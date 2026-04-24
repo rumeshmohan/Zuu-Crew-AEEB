@@ -1,0 +1,72 @@
+{
+  "id": "97dea9e15d4aa74ce2ecb237a24b4140",
+  "projectId": "cmo97ovey057bad07n7pcg6zi",
+  "name": "process_query",
+  "timestamp": "2026-04-24T18:54:49.688Z",
+  "environment": "default",
+  "tags": [],
+  "bookmarked": false,
+  "release": null,
+  "version": null,
+  "userId": null,
+  "sessionId": null,
+  "public": false,
+  "input": {
+    "args": [
+      "How many patients are there?",
+      [
+        {
+          "role": "assistant",
+          "content": "Welcome! I am the Nawaloka Hospital Data Assistant. Select a pre-built panel from the sidebar or ask a question below!",
+          "display": "Welcome! I am the Nawaloka Hospital Data Assistant. Select a pre-built panel from the sidebar or ask a question below!"
+        }
+      ]
+    ],
+    "kwargs": {}
+  },
+  "output": {
+    "type": "data",
+    "content": "There are 50000 patients in the database.",
+    "sql": "SELECT COUNT(patient_id) FROM patients",
+    "raw_data": [
+      {
+        "count": 50000
+      }
+    ],
+    "chart_config": {
+      "type": "metric",
+      "x_axis": null,
+      "y_axis": null,
+      "reason": "The data is a single number, making a metric chart the most suitable for display."
+    },
+    "agents_invoked": 4
+  },
+  "metadata": {
+    "resourceAttributes": {
+      "telemetry.sdk.language": "python",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.41.0",
+      "service.name": "unknown_service"
+    },
+    "scope": {
+      "name": "langfuse-sdk",
+      "version": "4.2.0",
+      "attributes": {
+        "public_key": "pk-lf-9e71059f-526c-44dc-a725-fc5fcadd5758"
+      }
+    }
+  },
+  "createdAt": "2026-04-24T18:54:55.000Z",
+  "updatedAt": "2026-04-24T18:55:00.331Z",
+  "observations": [
+    "0ac051fb4e8cb622",
+    "2f4c2c30fa9ded49",
+    "51b9f59b1ae0eca2",
+    "5f77f6bdd0f05bde"
+  ],
+  "scores": [],
+  "totalCost": 0,
+  "latency": 9.071,
+  "htmlPath": "/project/cmo97ovey057bad07n7pcg6zi/traces/97dea9e15d4aa74ce2ecb237a24b4140",
+  "externalId": null
+}

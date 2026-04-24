@@ -1,0 +1,149 @@
+{
+  "id": "9b32ffc4919ef0911819c8b267afffda",
+  "projectId": "cmo97ovey057bad07n7pcg6zi",
+  "name": "process_query",
+  "timestamp": "2026-04-24T18:55:58.405Z",
+  "environment": "default",
+  "tags": [],
+  "bookmarked": false,
+  "release": null,
+  "version": null,
+  "userId": null,
+  "sessionId": null,
+  "public": false,
+  "input": {
+    "args": [
+      "What is the total billed amount per department?",
+      [
+        {
+          "role": "assistant",
+          "content": "Chat cleared! How can I help you next?",
+          "display": "Chat cleared! How can I help you next?"
+        }
+      ]
+    ],
+    "kwargs": {}
+  },
+  "output": {
+    "type": "data",
+    "content": "The total billed amount varies across departments, with the highest amount in the ENT department at 279535010.34 and the lowest in the Pediatrics department at 226406666.56, the total billed amount for each department is as follows: Cardiology is 232323720.08, Gastroenterology is 204080303.48, Urology is 276497946.08, and Pediatrics is 226406666.56",
+    "sql": "SELECT T2.department_name, SUM(T1.total_amount) AS total_billed_amount FROM billing_invoices AS T1 INNER JOIN admissions AS T3 ON T1.admission_id = T3.admission_id INNER JOIN departments AS T2 ON T3.department_id = T2.department_id GROUP BY T2.department_name",
+    "raw_data": [
+      {
+        "department_name": "Cardiology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Gastroenterology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "ENT",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Urology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Pediatrics",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Anesthesiology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Psychiatry",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Dermatology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Radiology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Endocrinology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Internal Medicine",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Obstetrics & Gynecology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Ophthalmology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Pulmonology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "General Surgery",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Neurology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Oncology",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Emergency Medicine",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Orthopedics",
+        "total_billed_amount": "<Decimal>"
+      },
+      {
+        "department_name": "Nephrology",
+        "total_billed_amount": "<Decimal>"
+      }
+    ],
+    "chart_config": {
+      "type": "bar",
+      "x_axis": "department_name",
+      "y_axis": "total_billed_amount",
+      "reason": "A bar chart is suitable to compare the total billed amount across different departments"
+    },
+    "agents_invoked": 4
+  },
+  "metadata": {
+    "resourceAttributes": {
+      "telemetry.sdk.language": "python",
+      "telemetry.sdk.name": "opentelemetry",
+      "telemetry.sdk.version": "1.41.0",
+      "service.name": "unknown_service"
+    },
+    "scope": {
+      "name": "langfuse-sdk",
+      "version": "4.2.0",
+      "attributes": {
+        "public_key": "pk-lf-9e71059f-526c-44dc-a725-fc5fcadd5758"
+      }
+    }
+  },
+  "createdAt": "2026-04-24T18:56:02.000Z",
+  "updatedAt": "2026-04-24T18:56:06.581Z",
+  "observations": [
+    "c59e4a8aeadb21d0",
+    "4c6784ffa4107ea7",
+    "dbb92240ca792249",
+    "7ee7f6fc4b1a19b2"
+  ],
+  "scores": [],
+  "totalCost": 0,
+  "latency": 7.413,
+  "htmlPath": "/project/cmo97ovey057bad07n7pcg6zi/traces/9b32ffc4919ef0911819c8b267afffda",
+  "externalId": null
+}

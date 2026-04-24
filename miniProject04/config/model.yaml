@@ -1,0 +1,49 @@
+# Model Configuration for Nawaloka NL2SQL Platform
+
+openrouter:
+  chat:
+    general: google/gemini-3-flash
+    strong: openai/gpt-4.5-preview
+    reason: openai/o3-high
+
+openai:
+  chat:
+    general: gpt-4o-mini-2026
+    strong: gpt-4.5
+    reason: o3-high
+
+cohere:
+  chat:
+    general: command-r-v2
+    strong: command-r-plus-v2
+    reason: command-r-plus-v2
+
+anthropic:
+  chat:
+    general: claude-4-haiku-202601
+    strong: claude-4-sonnet-202602
+    reason: claude-4-opus-202603
+
+gemini:
+  chat:
+    general: gemini-3-flash-preview
+    strong: gemini-3-flash-preview
+    reason: gemini-3-ultra
+
+groq:
+  chat:
+    general: llama-3.3-70b-versatile
+    strong: llama-3.3-70b-versatile
+    reason: llama-3.1-8b-instant
+
+deepseek:
+  chat:
+    general: deepseek-v3
+    strong: deepseek-v3
+    reason: deepseek-reasoner-v2
+
+ollama:
+  chat:
+    general: llama3.2:3b
+    strong: llama3.2:3b
+    reason: llama3.2:3b

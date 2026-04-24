@@ -1,0 +1,17 @@
+# Parameter Configuration for Nawaloka NL2SQL Platform
+
+provider:
+  default: groq
+  tier: general
+
+llm:
+  temperature: 0.0 # Strict 0.0 is best for accurate SQL generation
+  max_tokens: 1024
+  top_p: 0.9
+
+paths:
+  data_dir: "data"
+
+output:
+  timezone: "Asia/Colombo"
+  disclaimer: "This is a pre-development NL2SQL prototype for Nawaloka Hospital."
